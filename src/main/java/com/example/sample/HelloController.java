@@ -55,10 +55,14 @@ public class HelloController {
     protected AnchorPane anchorpaneCalculator;
     @FXML
     protected AnchorPane anchorpaneNotes;
+    @FXML
+    protected AnchorPane anchorpaneNotes2;
 
 
     @FXML
     protected Button btnLogIn;
+    @FXML
+    protected Button btnSaveNotes;
     @FXML
     protected Button btnNotes;
     @FXML
@@ -134,11 +138,16 @@ public class HelloController {
     @FXML
     protected Label labelCalculatorResult;
 
+
     @FXML
     protected Pane paneEnd;
 
+
     @FXML
     private TextArea textareaChatGPT;
+    @FXML
+    protected TextArea textareaNotes;
+
 
     @FXML
     protected Text textEnd;
@@ -159,6 +168,7 @@ public class HelloController {
     protected TextField textfieldFirstName;
     @FXML
     protected TextField textfieldLastName;
+
 
     @FXML
     protected ImageView imageCloud1;
@@ -244,6 +254,11 @@ public class HelloController {
     @FXML
     void clickbtnLogIn(ActionEvent event) {
     }
+
+    @FXML
+    void clickbtnSave(ActionEvent event) {
+    }
+
 
     @FXML
     void initialize() {

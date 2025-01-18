@@ -45,6 +45,7 @@ public class MainController extends HelloController {
     private static final String USER = "postgres"; // Логин
     private static final String PASSWORD = "Imola11!";// Пароль
     private final int nowID = 1;
+    private int password = 0;
 
     protected ArrayList<String> SymbolC = new ArrayList<String>();
 
@@ -431,7 +432,7 @@ public class MainController extends HelloController {
         super.clickbtnLogIn(event);
 
         try {
-            int password = Integer.parseInt(textfieldPassword.getText());
+            password = Integer.parseInt(textfieldPassword.getText());
             String firstName = textfieldFirstName.getText();
             String lastName = textfieldLastName.getText();
 
@@ -450,6 +451,8 @@ public class MainController extends HelloController {
 
             ProgresConnect(password, firstName, lastName);
 
+            anchorpaneNotes2.setVisible(true);
+
         } catch (NumberFormatException e) {
             if (textfieldPassword.getLength() != 8){
                 textNotesError.setText("The password must contain 8 numbers");
@@ -463,8 +466,27 @@ public class MainController extends HelloController {
         } catch (Exception e) {
             System.out.println("Exception in btnLogin: " + e);
         }
-
     }
+
+    @Override
+    void clickbtnSave(ActionEvent event) {
+        super.clickbtnSave(event);
+
+        String notes = textareaNotes.getText();
+        String insertSQL = "INSERT INTO diary (id, date, notes, user_id) VALUES (?, ?, ?, ?)";
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+        PreparedStatement preparedStatement = connection.prepareStatement(insertSQL)) {
+                preparedStatement.setString(4, String.valueOf(password));
+                preparedStatement.setString(3, notes);
+                preparedStatement.setString(2, String.valueOf(24));
+                preparedStatement.setString(1, String.valueOf(1));
+                System.out.println("Good" + notes);
+
+        } catch (Exception e) {
+            System.out.println("Exception in btnSave: " + e);
+        }
+    }
+
 
     @Override
     void initialize() {

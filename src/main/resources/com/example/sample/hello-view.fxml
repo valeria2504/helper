@@ -478,6 +478,19 @@
                   <Font name="Arial Black" size="10.0" />
                </font>
             </Text>
+            <AnchorPane fx:id="anchorpaneNotes2" layoutX="14.0" layoutY="30.0" prefHeight="366.0" prefWidth="444.0" style="-fx-background-color: white;" visible="false">
+               <children>
+                  <TextArea fx:id="textareaNotes" layoutX="14.0" layoutY="14.0" prefHeight="293.0" prefWidth="413.0" />
+                  <Button fx:id="btnSaveNotes" layoutX="187.0" layoutY="318.0" mnemonicParsing="false" onAction="#clickbtnSave" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: white;" text="Save" textFill="#515151">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <effect>
+                        <InnerShadow height="6.35" radius="2.675" width="6.35" />
+                     </effect>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
